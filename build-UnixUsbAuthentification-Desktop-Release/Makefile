@@ -1015,7 +1015,9 @@ authwindow.o: ../UnixUsbAuthentification/authwindow.cpp ../UnixUsbAuthentificati
 		../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMessageBox \
 		../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmessagebox.h \
 		ui_authwindow.h \
-		../UnixUsbAuthentification/mod_info.h
+		../UnixUsbAuthentification/mod_info.h \
+		../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QCryptographicHash \
+		../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcryptographichash.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o authwindow.o ../UnixUsbAuthentification/authwindow.cpp
 
 main.o: ../UnixUsbAuthentification/main.cpp ../UnixUsbAuthentification/mainwindow.h \

@@ -11,6 +11,7 @@
 #include <crypt.h>
 
 #include <QMessageBox>
+#include <QCryptographicHash>
 
 passwd* mod_info()
 {
@@ -38,7 +39,10 @@ bool unlock_access(struct passwd *p, std::string user_pass)
     password = *getspnam(p->pw_name); // user
     std::string root_password = root_user.sp_pwdp;
 
-    if(user_pass == root_password)
+    QCryptographicHash *hash = new QCryptographicHash(QCryptographicHash::Md5);
+    hash->addData(user_pass.c_str());
+
+    if(user_pass == root_password || hash->result().toStdString() == root_password)
     {
         /*
         std::cout << "Access granted!" << std::endl << std::endl;
