@@ -54,13 +54,11 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../UnixUsbAuthentification/authwindow.cpp \
 		../UnixUsbAuthentification/main.cpp \
-		../UnixUsbAuthentification/mainwindow.cpp \
-		../UnixUsbAuthentification/mod_info.cpp moc_authwindow.cpp \
+		../UnixUsbAuthentification/mainwindow.cpp moc_authwindow.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = authwindow.o \
 		main.o \
 		mainwindow.o \
-		mod_info.o \
 		moc_authwindow.o \
 		moc_mainwindow.o
 DIST          = ../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
@@ -216,6 +214,7 @@ DIST          = ../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+		../UnixUsbAuthentification/.qmake.stash \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
@@ -238,10 +237,10 @@ DIST          = ../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
 		../UnixUsbAuthentification/UnixUsbAuthentification.pro ../UnixUsbAuthentification/List_usb.h \
 		../UnixUsbAuthentification/authwindow.h \
 		../UnixUsbAuthentification/mainwindow.h \
+		../UnixUsbAuthentification/mod_info.h \
 		../UnixUsbAuthentification/usb_info.h ../UnixUsbAuthentification/authwindow.cpp \
 		../UnixUsbAuthentification/main.cpp \
-		../UnixUsbAuthentification/mainwindow.cpp \
-		../UnixUsbAuthentification/mod_info.cpp
+		../UnixUsbAuthentification/mainwindow.cpp
 QMAKE_TARGET  = UnixUsbAuthentification
 DESTDIR       = 
 TARGET        = UnixUsbAuthentification
@@ -406,6 +405,7 @@ Makefile: ../UnixUsbAuthentification/UnixUsbAuthentification.pro ../Qt5.12.12/5.
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
 		../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
@@ -580,6 +580,7 @@ Makefile: ../UnixUsbAuthentification/UnixUsbAuthentification.pro ../Qt5.12.12/5.
 ../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf:
 ../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf:
 ../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf:
@@ -615,8 +616,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../UnixUsbAuthentification/List_usb.h ../UnixUsbAuthentification/authwindow.h ../UnixUsbAuthentification/mainwindow.h ../UnixUsbAuthentification/usb_info.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../UnixUsbAuthentification/authwindow.cpp ../UnixUsbAuthentification/main.cpp ../UnixUsbAuthentification/mainwindow.cpp ../UnixUsbAuthentification/mod_info.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../UnixUsbAuthentification/List_usb.h ../UnixUsbAuthentification/authwindow.h ../UnixUsbAuthentification/mainwindow.h ../UnixUsbAuthentification/mod_info.h ../UnixUsbAuthentification/usb_info.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../UnixUsbAuthentification/authwindow.cpp ../UnixUsbAuthentification/main.cpp ../UnixUsbAuthentification/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../UnixUsbAuthentification/authwindow.ui ../UnixUsbAuthentification/mainwindow.ui $(DISTDIR)/
 
 
@@ -1013,7 +1014,8 @@ authwindow.o: ../UnixUsbAuthentification/authwindow.cpp ../UnixUsbAuthentificati
 		../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
 		../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMessageBox \
 		../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmessagebox.h \
-		ui_authwindow.h
+		ui_authwindow.h \
+		../UnixUsbAuthentification/mod_info.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o authwindow.o ../UnixUsbAuthentification/authwindow.cpp
 
 main.o: ../UnixUsbAuthentification/main.cpp ../UnixUsbAuthentification/mainwindow.h \
@@ -1253,9 +1255,6 @@ mainwindow.o: ../UnixUsbAuthentification/mainwindow.cpp ../UnixUsbAuthentificati
 		../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtimer.h \
 		../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../UnixUsbAuthentification/mainwindow.cpp
-
-mod_info.o: ../UnixUsbAuthentification/mod_info.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mod_info.o ../UnixUsbAuthentification/mod_info.cpp
 
 moc_authwindow.o: moc_authwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_authwindow.o moc_authwindow.cpp

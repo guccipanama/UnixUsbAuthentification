@@ -1,8 +1,6 @@
 #include "authwindow.h"
 #include "ui_authwindow.h"
-
-
-
+#include "mod_info.h"
 
 AuthWindow::AuthWindow(QWidget *parent) : QDialog(parent), ui(new Ui::AuthWindow)
 {
@@ -16,7 +14,8 @@ AuthWindow::~AuthWindow()
 
 void AuthWindow::on_ok_button_clicked()
 {
-    if (ui->password_text_box->text() == "1")
+    struct passwd *p = mod_info();
+    if (unlock_access(p, ui->password_text_box->text().toStdString()))
         accept();
     else
         QMessageBox::warning(this, "Error", "Wrong password!!");

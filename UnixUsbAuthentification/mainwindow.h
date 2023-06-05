@@ -24,6 +24,10 @@ private slots:
 
     void on_unbind_button_clicked();
 
+    void on_bin_all_button_clicked();
+
+    void on_unbind_all_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     List_usb list_usb;

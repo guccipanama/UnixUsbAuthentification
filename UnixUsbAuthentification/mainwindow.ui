@@ -17,14 +17,14 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>UNIX USB Authentification</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="bind_button">
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>500</y>
+      <y>430</y>
       <width>100</width>
       <height>25</height>
      </rect>
@@ -37,7 +37,7 @@
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>535</y>
+      <y>465</y>
       <width>100</width>
       <height>25</height>
      </rect>
@@ -60,13 +60,39 @@
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>465</y>
+      <y>395</y>
       <width>100</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
      <string>Update</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bin_all_button">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>500</y>
+      <width>100</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Bind All</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="unbind_all_button">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>535</y>
+      <width>100</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Unbind All</string>
     </property>
    </widget>
   </widget>

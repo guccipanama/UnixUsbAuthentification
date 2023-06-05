@@ -17,7 +17,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         QTimer::singleShot(0, this, SLOT(close()));
     }
     else if(result == 1)
+    {
+
         update_list();
+    }
 
 }
 
@@ -28,9 +31,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::update_list()
 {
-    ui->list_of_usb->clear();
     list_usb.update();
-
     ui->list_of_usb->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->list_of_usb->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->list_of_usb->setColumnCount(6);
@@ -64,6 +65,7 @@ void MainWindow::on_bind_button_clicked()
     if(result == 1)
     {
         list_usb.unlock(list_usb.VectorUsb[temp].Name);
+        update_list();
     }
 }
 
@@ -77,6 +79,33 @@ void MainWindow::on_unbind_button_clicked()
     if(result == 1)
     {
         list_usb.lock(list_usb.VectorUsb[temp].Name);
+        update_list();
+    }
+}
+
+
+void MainWindow::on_bin_all_button_clicked()
+{
+    AuthWindow auth;
+    auth.setModal(true);
+    int result = auth.exec();
+    if(result == 1)
+    {
+        list_usb.unlock_all();
+        update_list();
+    }
+}
+
+
+void MainWindow::on_unbind_all_button_clicked()
+{
+    AuthWindow auth;
+    auth.setModal(true);
+    int result = auth.exec();
+    if(result == 1)
+    {
+        list_usb.lock_all();
+        update_list();
     }
 }
 

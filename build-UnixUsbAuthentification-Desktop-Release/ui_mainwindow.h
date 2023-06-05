@@ -27,6 +27,8 @@ public:
     QPushButton *unbind_button;
     QTableWidget *list_of_usb;
     QPushButton *update_button;
+    QPushButton *bin_all_button;
+    QPushButton *unbind_all_button;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -42,16 +44,22 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         bind_button = new QPushButton(centralwidget);
         bind_button->setObjectName(QString::fromUtf8("bind_button"));
-        bind_button->setGeometry(QRect(620, 500, 100, 25));
+        bind_button->setGeometry(QRect(620, 430, 100, 25));
         unbind_button = new QPushButton(centralwidget);
         unbind_button->setObjectName(QString::fromUtf8("unbind_button"));
-        unbind_button->setGeometry(QRect(620, 535, 100, 25));
+        unbind_button->setGeometry(QRect(620, 465, 100, 25));
         list_of_usb = new QTableWidget(centralwidget);
         list_of_usb->setObjectName(QString::fromUtf8("list_of_usb"));
         list_of_usb->setGeometry(QRect(10, 10, 600, 550));
         update_button = new QPushButton(centralwidget);
         update_button->setObjectName(QString::fromUtf8("update_button"));
-        update_button->setGeometry(QRect(620, 465, 100, 25));
+        update_button->setGeometry(QRect(620, 395, 100, 25));
+        bin_all_button = new QPushButton(centralwidget);
+        bin_all_button->setObjectName(QString::fromUtf8("bin_all_button"));
+        bin_all_button->setGeometry(QRect(620, 500, 100, 25));
+        unbind_all_button = new QPushButton(centralwidget);
+        unbind_all_button->setObjectName(QString::fromUtf8("unbind_all_button"));
+        unbind_all_button->setGeometry(QRect(620, 535, 100, 25));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -61,10 +69,12 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "UNIX USB Authentification", nullptr));
         bind_button->setText(QApplication::translate("MainWindow", "Bind", nullptr));
         unbind_button->setText(QApplication::translate("MainWindow", "Unbind", nullptr));
         update_button->setText(QApplication::translate("MainWindow", "Update", nullptr));
+        bin_all_button->setText(QApplication::translate("MainWindow", "Bind All", nullptr));
+        unbind_all_button->setText(QApplication::translate("MainWindow", "Unbind All", nullptr));
     } // retranslateUi
 
 };

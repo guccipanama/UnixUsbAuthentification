@@ -11,14 +11,15 @@ CONFIG += c++11
 SOURCES += \
     authwindow.cpp \
     main.cpp \
-    mainwindow.cpp \
-    mod_info.cpp
+    mainwindow.cpp
 
 HEADERS += \
     List_usb.h \
     authwindow.h \
     mainwindow.h \
-    usb_info.h
+    mod_info.h \
+    usb_info.h \
+
 
 FORMS += \
     authwindow.ui \

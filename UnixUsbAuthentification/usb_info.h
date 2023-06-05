@@ -72,7 +72,28 @@ public:
         close(fdBus);
 
         Power = new char [10];
-        strcpy(Power, "Unlock");
+        chdir(PathToConection);
+        DIR *dir;
+        dir = opendir(PathToConection);
+        if(dir == nullptr)
+            throw strerror(errno);
+        struct dirent* f_cur;
+        bool flag = false;
+        while((f_cur= readdir(dir))!=nullptr)
+        {
+            if(!strcmp(f_cur->d_name, IdPath))
+            {
+                flag = true;
+                strcpy(Power, "Unlock");
+            }
+            else
+                continue;
+        }
+        if(!flag)
+            strcpy(Power, "Lock");
+        closedir(dir);
+
+
         corrected_field();
     }
 
@@ -86,9 +107,9 @@ public:
         }
         write(fdPower, IdPath, sizeof(IdPath));
 
-        delete Power;
-        Power = new char [10];
-        strcpy(Power, "Unlock");
+        //delete Power;
+        //Power = new char [10];
+        //strcpy(Power, "Unlock");
     }
     void unbind()
     {
@@ -100,9 +121,9 @@ public:
         }
         write(fdPower, IdPath, sizeof(IdPath));
 
-        delete Power;
-        Power = new char [10];
-        strcpy(Power, "Lock");
+        //delete Power;
+        //Power = new char [10];
+        //strcpy(Power, "Lock");
     }
 
 private:
