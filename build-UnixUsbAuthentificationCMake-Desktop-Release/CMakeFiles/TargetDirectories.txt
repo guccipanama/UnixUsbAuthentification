@@ -1,0 +1,4 @@
+/home/guccipanama/build-UnixUsbAuthentificationCMake-Desktop-Release/CMakeFiles/UnixUsbAuthentificationCMake.dir
+/home/guccipanama/build-UnixUsbAuthentificationCMake-Desktop-Release/CMakeFiles/edit_cache.dir
+/home/guccipanama/build-UnixUsbAuthentificationCMake-Desktop-Release/CMakeFiles/rebuild_cache.dir
+/home/guccipanama/build-UnixUsbAuthentificationCMake-Desktop-Release/CMakeFiles/UnixUsbAuthentificationCMake_autogen.dir
